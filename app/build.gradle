@@ -16,7 +16,7 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    dataBinding{
+    dataBinding {
         enabled = true
     }
     buildTypes {
@@ -35,7 +35,8 @@ dependencies {
     implementation "com.android.support.constraint:constraint-layout:1.1.0"
     //implementation "com.android.support:support-v4:$rootProject.supportLibraryVersion"
 
-
+    implementation "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    implementation "com.android.support:customtabs:$rootProject.customTabs"
     implementation "android.arch.persistence.room:runtime:$rootProject.archRoomVersion"
     implementation "android.arch.persistence.room:rxjava2:$rootProject.archRoomVersion"
     implementation "android.arch.lifecycle:extensions:$rootProject.archLifecycleVersion"
@@ -46,6 +47,7 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.loggingInterceptorVersion"
     implementation "com.squareup.okhttp3:okhttp:$rootProject.okhttpVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxJava2AndroidVersion"
+    implementation 'com.android.support:support-v4:26.1.0'
     kapt "com.android.databinding:compiler:$rootProject.gradleVersion"
     // Unit Test Dependencies
     testImplementation 'junit:junit:4.12'

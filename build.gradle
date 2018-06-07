@@ -39,4 +39,5 @@ ext {
     espressoVersion = "3.0.1"
     junitVersion = "4.12"
     testRunnerVersion = "1.0.1"
+    customTabs = "26.1.0"
 }

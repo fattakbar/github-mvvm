@@ -1,15 +1,18 @@
 package com.yogiw.githubmvvm.main
 
 import android.arch.lifecycle.Observer
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.yogiw.githubmvvm.R
+import com.yogiw.githubmvvm.repo.RepoActivity
 import com.yogiw.githubmvvm.util.replaceFragmentInActivity
 import com.yogiw.githubmvvm.util.obtainViewModel
 
 
 class MainActivity : AppCompatActivity() {
+
 
     private lateinit var mActivity: AppCompatActivity
     private lateinit var viewModel: MainViewModel
@@ -37,7 +40,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupViewModel() {
         viewModel = obtainViewModel().apply{
             openRepo.observe(this@MainActivity, Observer{
-                Toast.makeText(mActivity, it?.name, Toast.LENGTH_LONG).show()
+                startActivity(Intent(mActivity, RepoActivity::class.java))
             })
         }
     }

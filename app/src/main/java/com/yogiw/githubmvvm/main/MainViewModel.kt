@@ -20,8 +20,7 @@ class MainViewModel(application: Application, private val mainDataRepository: Ma
     }
 
     fun openRepo(){
-        //TODO: Toasnya pindah ke activity
-        Toast.makeText(getApplication(), "xx", Toast.LENGTH_LONG).show()
+        openRepo.value = mainDataField.get()
     }
 
     private fun getMainData(){
