@@ -3,6 +3,8 @@ package com.yogiw.githubmvvm.data.source
 import com.yogiw.githubmvvm.data.MainData
 import com.yogiw.githubmvvm.data.source.local.MainDataLocalSource
 
+
+// REPOSITORY SATU AJA
 class MainDataRepository(
         val remoteDataSource: MainDataSource,
         val localDataSource: MainDataSource

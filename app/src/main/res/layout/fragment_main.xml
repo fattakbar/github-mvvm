@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".main.MainFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="action"
+            type="com.yogiw.githubmvvm.main.MainActionListener"/>
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.yogiw.githubmvvm.main.MainViewModel"/>
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,28 +19,53 @@
         <ImageView
             android:id="@+id/ivAvatar"
             android:layout_width="200dp"
-            android:layout_height="200dp" />
+            android:layout_height="200dp"
+            imageUrl="@{vm.mainDataField.avatarUrl}"
+            android:layout_gravity="center"/>
         <TextView
             android:id="@+id/tvNama"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Joko Widodo"/>
+            android:gravity="center"
+            android:text="@{vm.mainDataField.name}"
+            tools:text="Haloo"/>
         <TextView
-            android:id="@+id/tvProfile"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvLocation"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Jakarta -"/>
-        <TextView
-            android:id="@+id/tvFollower"
-            android:layout_width="wrap_content"
+            android:gravity="center"
+            tools:text="@{vm.mainDataField.location}"/>
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Follower: 0"/>
-        <TextView
-            android:id="@+id/tvFollowing"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Following: 0"/>
+            android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tvFollower"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:gravity="center"
+                tools:text="@{vm.mainDataField.followers}"
+                android:onClick="@{()->action.onClickRepos()}"
+                android:layout_weight="1"/>
+            <TextView
+                android:id="@+id/tvFollowing"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_weight="1"
+                tools:text="@{vm.mainDataField.following}"/>
+            <TextView
+                android:id="@+id/tvRepos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_weight="1"
+                tools:text="@{vm.mainDataField.publicRepos}"/>
 
+        </LinearLayout>
     </LinearLayout>
 
-</FrameLayout>
+</layout>
