@@ -4,25 +4,25 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class MainData (
-        var name: String? = null,
-        var location: String? = null,
-        var email: String? = null,
-        var company: String? = null,
-        var avatarUrl: String? =null,
-        var followers: Int? = null,
-        var following: Int? = null,
-        var publicRepos: Int? = null
+        var name: String? = "-",
+        var location: String? = "-",
+        var email: String? = "-",
+        var company: String? = "-",
+        var avatarUrl: String? ="-",
+        var followers: String? = "0",
+        var following: String? = "0",
+        var publicRepos: String? = "0"
 // Setelah membuat properti + implements parcalable trus alt + enter buat implement kode dibawah
-) : Parcelable{
+) : Parcelable {
     constructor(parcel: Parcel) : this(
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
             parcel.readString(),
-            parcel.readValue(Int::class.java.classLoader) as? Int,
-            parcel.readValue(Int::class.java.classLoader) as? Int,
-            parcel.readValue(Int::class.java.classLoader) as? Int) {
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString()) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -31,9 +31,9 @@ class MainData (
         parcel.writeString(email)
         parcel.writeString(company)
         parcel.writeString(avatarUrl)
-        parcel.writeValue(followers)
-        parcel.writeValue(following)
-        parcel.writeValue(publicRepos)
+        parcel.writeString(followers)
+        parcel.writeString(following)
+        parcel.writeString(publicRepos)
     }
 
     override fun describeContents(): Int {
@@ -49,5 +49,4 @@ class MainData (
             return arrayOfNulls(size)
         }
     }
-
 }

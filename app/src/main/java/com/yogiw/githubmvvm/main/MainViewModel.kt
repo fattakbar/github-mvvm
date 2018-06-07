@@ -12,7 +12,7 @@ import internship.gits.newsapps.util.SingleLiveEvent
 
 class MainViewModel(application: Application, private val mainDataRepository: MainDataRepository) : AndroidViewModel(application) {
 
-    var mainDataField: ObservableField<MainData> = ObservableField()
+    val mainDataField: ObservableField<MainData> = ObservableField()
     internal val openRepo = SingleLiveEvent<MainData>()
 
     fun start(){
@@ -26,7 +26,7 @@ class MainViewModel(application: Application, private val mainDataRepository: Ma
             }
 
             override fun onError(msg: String?) {
-                Toast.makeText(getApplication(), "Error", Toast.LENGTH_LONG).show()
+                Toast.makeText(getApplication(), "Error: ${msg}", Toast.LENGTH_LONG).show()
             }
 
             override fun onNotAvailable() {

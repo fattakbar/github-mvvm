@@ -1,7 +1,7 @@
 package com.yogiw.githubmvvm.api
 
 import com.yogiw.githubmvvm.api.dao.MainDataDao
-import com.yogiw.githubmvvm.util.Web
+import com.yogiw.githubmvvm.util.Constant
 import io.reactivex.Observable
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -24,7 +24,7 @@ interface ApiService {
                             RxJava2CallAdapterFactory.create())
                     .addConverterFactory(
                             GsonConverterFactory.create())
-                    .baseUrl(Web.BASE_URL)
+                    .baseUrl(Constant.BASE_URL)
                     .build()
 
             return retrofit.create(ApiService::class.java)
