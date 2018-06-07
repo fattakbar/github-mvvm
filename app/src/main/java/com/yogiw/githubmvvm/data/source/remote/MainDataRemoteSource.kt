@@ -20,15 +20,14 @@ object MainDataRemoteSource : MainDataSource {
                     run {
 
                         if (it.name != ""){
-                            Log.i("xx", "$it")
                             val mainData = MainData(it.name,
                                     it.location,
                                     it.email,
                                     it.company,
                                     it.avatar_url,
-                                    it.followers.toString(),
-                                    it.following.toString(),
-                                    it.public_repos.toString()
+                                    "${it.followers.toString()} \nFollowers",
+                                    "${it.following.toString()} \nFollowings",
+                                    "${it.public_repos.toString()} \nRepos"
                             )
                             callback.onDataLoaded(mainData)
                         } else {

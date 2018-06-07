@@ -19,6 +19,11 @@ class MainViewModel(application: Application, private val mainDataRepository: Ma
         getMainData()
     }
 
+    fun openRepo(){
+        //TODO: Toasnya pindah ke activity
+        Toast.makeText(getApplication(), "xx", Toast.LENGTH_LONG).show()
+    }
+
     private fun getMainData(){
         mainDataRepository.getMainData(object : MainDataSource.GetMainDataCallback{
             override fun onDataLoaded(mainData: MainData?) {
