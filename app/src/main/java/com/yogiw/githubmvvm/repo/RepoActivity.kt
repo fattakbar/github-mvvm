@@ -15,7 +15,7 @@ import com.yogiw.githubmvvm.util.obtainViewModel
 import com.yogiw.githubmvvm.util.replaceFragmentInActivity
 import com.yogiw.githubmvvm.repo.ReposItemActionListener
 
-class RepoActivity : AppCompatActivity(), ReposItemActionListener {
+class RepoActivity : AppCompatActivity() {
 
 
     private lateinit var mActivity: AppCompatActivity
@@ -33,7 +33,7 @@ class RepoActivity : AppCompatActivity(), ReposItemActionListener {
     private fun setupViewModel() {
         viewModel = obtainViewModel().apply{
             openRepo.observe(this@RepoActivity, Observer{
-                Log.i("xx", " * ${it!!.repoName}")
+                Log.i("xx", " * it")
                 onRepoClicked(it!!)
             })
         }
@@ -46,12 +46,12 @@ class RepoActivity : AppCompatActivity(), ReposItemActionListener {
         }
     }
 
-    override fun onRepoClicked(repo: RepoData) {
+    fun onRepoClicked(url: String) {
         Toast.makeText(this, "xx", Toast.LENGTH_LONG).show()
         val builder = CustomTabsIntent.Builder()
         val customTabsIntent = builder.build()
         builder.setToolbarColor(ContextCompat.getColor(mActivity, R.color.colorPrimary))
-        customTabsIntent.launchUrl(mActivity, Uri.parse(repo.url))
+        customTabsIntent.launchUrl(mActivity, Uri.parse(url))
     }
 
     fun obtainViewModel(): RepoViewModel = obtainViewModel(RepoViewModel::class.java)

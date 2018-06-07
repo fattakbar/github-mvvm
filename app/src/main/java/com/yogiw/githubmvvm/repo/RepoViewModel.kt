@@ -13,7 +13,7 @@ import internship.gits.newsapps.util.SingleLiveEvent
 
 class RepoViewModel (application: Application, private val mainDataRepository: MainDataRepository) : AndroidViewModel(application){
     val repoList: ObservableList<RepoData> = ObservableArrayList()
-    internal val openRepo = SingleLiveEvent<RepoData>()
+    internal val openRepo = SingleLiveEvent<String>()
 
     fun start() {
         getRepos()

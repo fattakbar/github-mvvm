@@ -20,8 +20,8 @@ class RepoAdapter(private var repoData: MutableList<RepoData>,private var repoVi
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         val datas = repoData[position]
         val actionListener = object : ReposItemActionListener{
-            override fun onRepoClicked(repo: RepoData) {
-                repoViewModel.openRepo.value = datas
+            override fun onRepoClicked() {
+                repoViewModel.openRepo.value = datas.url
             }
 
 
@@ -43,7 +43,7 @@ class RepoAdapter(private var repoData: MutableList<RepoData>,private var repoVi
 
         fun bindRows(repoData: RepoData, userActionListener: ReposItemActionListener) {
             repoItemBinding.datas =  repoData
-            // repoItemBinding = userActionListener
+            repoItemBinding.action = userActionListener
             repoItemBinding.executePendingBindings()
 //            if(repoData.urlToImage!= null)
 //                newsRowBinding.ivRowNewsImage.load(news.urlToImage!!){
