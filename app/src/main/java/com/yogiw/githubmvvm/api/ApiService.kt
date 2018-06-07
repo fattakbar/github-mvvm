@@ -1,6 +1,7 @@
 package com.yogiw.githubmvvm.api
 
 import com.yogiw.githubmvvm.api.dao.MainDataDao
+import com.yogiw.githubmvvm.api.dao.RepoDataDao
 import com.yogiw.githubmvvm.util.Constant
 import io.reactivex.Observable
 import retrofit2.Retrofit
@@ -14,6 +15,11 @@ interface ApiService {
     fun getMainData(
             @Path("username") username: String
     ): Observable<MainDataDao>
+
+    @GET("https://api.github.com/users/{username}/repos")
+    fun getReposData(
+            @Path("username") username: String
+    ): Observable<List<RepoDataDao>>
 
     companion object Factory {
 

@@ -2,7 +2,9 @@ package com.yogiw.githubmvvm.data.source.remote
 
 import android.util.Log
 import com.yogiw.githubmvvm.api.ApiService
+import com.yogiw.githubmvvm.api.dao.RepoDataDao
 import com.yogiw.githubmvvm.data.MainData
+import com.yogiw.githubmvvm.data.RepoData
 import com.yogiw.githubmvvm.data.source.MainDataSource
 import com.yogiw.githubmvvm.util.Constant
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -39,4 +41,36 @@ object MainDataRemoteSource : MainDataSource {
                     callback.onError(it.message )
                 })
     }
+
+    override fun getRepoData(callback: MainDataSource.GetRepoDataCallback) {
+        apiService.getReposData(Constant.username)
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe({
+                    run {
+
+                        if (it.isNotEmpty()){
+
+                            val listRepo: MutableList<RepoData?> = mutableListOf<RepoData?>()
+                            for (item: RepoDataDao in it){
+                                val repoData = RepoData(
+                                        item.name,
+                                        item.language,
+                                        item.description
+                                )
+                                listRepo.add(repoData)
+
+                            }
+
+                            callback.onDataLoaded(listRepo)
+                        } else {
+                            callback.onNotAvailable()
+                        }
+
+                    }
+                }, {
+                    callback.onError(it.message )
+                })
+    }
+
 }

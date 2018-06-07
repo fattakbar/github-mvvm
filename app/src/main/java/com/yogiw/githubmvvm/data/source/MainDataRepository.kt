@@ -1,6 +1,7 @@
 package com.yogiw.githubmvvm.data.source
 
 import com.yogiw.githubmvvm.data.MainData
+import com.yogiw.githubmvvm.data.RepoData
 import com.yogiw.githubmvvm.data.source.local.MainDataLocalSource
 
 
@@ -24,6 +25,23 @@ class MainDataRepository(
             }
         })
     }
+
+    override fun getRepoData(callback: MainDataSource.GetRepoDataCallback){
+        remoteDataSource.getRepoData(object: MainDataSource.GetRepoDataCallback{
+            override fun onNotAvailable() {
+                callback.onNotAvailable()
+            }
+
+            override fun onError(msg: String?) {
+                callback.onError(msg)
+            }
+
+            override fun onDataLoaded(repoData: MutableList<RepoData?>) {
+                callback.onDataLoaded(repoData)
+            }
+        })
+    }
+
 
     companion object {
         private var INSTANCE: MainDataRepository? = null

@@ -6,6 +6,10 @@ import com.yogiw.githubmvvm.data.source.MainDataSource
 import java.util.prefs.AbstractPreferences
 
 class MainDataLocalSource  private constructor(private val preferences: SharedPreferences) : MainDataSource{
+    override fun getRepoData(callback: MainDataSource.GetRepoDataCallback) {
+
+    }
+
     override fun getMainData(callback: MainDataSource.GetMainDataCallback) {
 
     }
