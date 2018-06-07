@@ -32,11 +32,10 @@ class MainFragment : Fragment() {
         viewBinding = FragmentMainBinding.inflate(inflater, container, false).apply {
             vm = (activity as MainActivity).obtainViewModel()
 
-            action = object :  MainActionListener{
+            action = object :  MainActionListener {
                 override fun onClickRepos() {
                     vm?.openRepo()
                 }
-
             }
         }
 

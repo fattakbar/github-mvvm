@@ -46,7 +46,6 @@
                 android:textSize="20sp"
                 android:gravity="center"
                 tools:text="@{vm.mainDataField.followers}"
-                android:onClick="@{()->action.onClickRepos()}"
                 android:layout_weight="1"/>
             <TextView
                 android:id="@+id/tvFollowing"
@@ -63,6 +62,7 @@
                 android:textSize="20sp"
                 android:gravity="center"
                 android:layout_weight="1"
+                android:onClick="@{()->action.onClickRepos()}"
                 tools:text="@{vm.mainDataField.publicRepos}"/>
 
         </LinearLayout>

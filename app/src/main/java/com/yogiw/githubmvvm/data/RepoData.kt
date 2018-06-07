@@ -4,11 +4,13 @@ import android.os.Parcel
 import android.os.Parcelable
 
 class RepoData(
-        var repoName: String,
-        var language: String,
-        var repoDescription: String
+        var repoName: String? = "-",
+        var language: String? = "-",
+        var repoDescription: String? = "-",
+        var url : String? = "-"
 ) :Parcelable {
     constructor(parcel: Parcel) : this(
+            parcel.readString(),
             parcel.readString(),
             parcel.readString(),
             parcel.readString()) {
@@ -18,6 +20,7 @@ class RepoData(
         parcel.writeString(repoName)
         parcel.writeString(language)
         parcel.writeString(repoDescription)
+        parcel.writeString(url)
     }
 
     override fun describeContents(): Int {

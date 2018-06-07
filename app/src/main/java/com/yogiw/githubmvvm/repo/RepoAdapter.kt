@@ -8,11 +8,11 @@ import com.yogiw.githubmvvm.R
 import com.yogiw.githubmvvm.data.RepoData
 import com.yogiw.githubmvvm.databinding.RepoItemBinding
 
-class RepoAdapter(private var repoData: MutableList<RepoData>,private var newsViewModel: RepoViewModel) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class RepoAdapter(private var repoData: MutableList<RepoData>,private var repoViewModel: RepoViewModel) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         val repoItemBinding : RepoItemBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.context),
                 R.layout.repo_item,parent,false)
-        return NewsRowHolder(repoItemBinding)
+        return RepoHolder(repoItemBinding)
     }
 
     override fun getItemCount(): Int = repoData.size
@@ -21,12 +21,12 @@ class RepoAdapter(private var repoData: MutableList<RepoData>,private var newsVi
         val datas = repoData[position]
         val actionListener = object : ReposItemActionListener{
             override fun onRepoClicked(repo: RepoData) {
-                RepoViewModel.op.value = repoData
+                repoViewModel.openRepo.value = datas
             }
 
 
         }
-        (holder as NewsRowHolder).bindRows(datas,actionListener)
+        (holder as RepoHolder).bindRows(datas, actionListener)
     }
 
     fun replaceData(repoDa: MutableList<RepoData>){
@@ -38,17 +38,17 @@ class RepoAdapter(private var repoData: MutableList<RepoData>,private var newsVi
         notifyDataSetChanged()
     }
 
-    class NewsRowHolder(binding: RepoItemBinding) : RecyclerView.ViewHolder(binding.root){
+    class RepoHolder(binding: RepoItemBinding) : RecyclerView.ViewHolder(binding.root){
         val repoItemBinding = binding
 
         fun bindRows(repoData: RepoData, userActionListener: ReposItemActionListener) {
-            repoItemBinding.datas =  news
-            repoItemBinding.action = userActionListener
+            repoItemBinding.datas =  repoData
+            // repoItemBinding = userActionListener
             repoItemBinding.executePendingBindings()
-            if(news.urlToImage!= null)
-                newsRowBinding.ivRowNewsImage.load(news.urlToImage!!){
-                    requestCreator -> requestCreator.fit().centerCrop()
-                }
+//            if(repoData.urlToImage!= null)
+//                newsRowBinding.ivRowNewsImage.load(news.urlToImage!!){
+//                    requestCreator -> requestCreator.fit().centerCrop()
+//                }
         }
     }
 }

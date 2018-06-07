@@ -7,6 +7,7 @@ import android.arch.lifecycle.ViewModelProvider
 import android.support.annotation.VisibleForTesting
 import com.yogiw.githubmvvm.data.source.MainDataRepository
 import com.yogiw.githubmvvm.main.MainViewModel
+import com.yogiw.githubmvvm.repo.RepoViewModel
 import com.yogiw.githubmvvm.util.Injection
 
 class ViewModelFactory private constructor(
@@ -19,8 +20,8 @@ class ViewModelFactory private constructor(
         when{
             isAssignableFrom(MainViewModel::class.java) ->
                 MainViewModel(application,mainDataRepository)
-//            isAssignableFrom(DetailViewModel::class.java) ->
-//                    DetailViewModel(application,newsRepository)
+            isAssignableFrom(RepoViewModel::class.java) ->
+                RepoViewModel(application, mainDataRepository)
             else ->
                     throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")
         }

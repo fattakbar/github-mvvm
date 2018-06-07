@@ -4,6 +4,7 @@ import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
 import android.databinding.ObservableArrayList
 import android.databinding.ObservableList
+import android.util.Log
 import android.widget.Toast
 import com.yogiw.githubmvvm.data.RepoData
 import com.yogiw.githubmvvm.data.source.MainDataRepository
@@ -32,7 +33,8 @@ class RepoViewModel (application: Application, private val mainDataRepository: M
             }
 
             override fun onError(msg: String?) {
-                Toast.makeText(getApplication(),"Error at "+msg, Toast.LENGTH_SHORT).show()
+                Toast.makeText(getApplication(),"Error at - $msg", Toast.LENGTH_SHORT).show()
+                Log.i("xx", msg)
             }
         })
     }

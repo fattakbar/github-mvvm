@@ -21,7 +21,7 @@ object MainDataRemoteSource : MainDataSource {
                 .subscribe({
                     run {
 
-                        if (it.name != ""){
+                        if (it.name != "") {
                             val mainData = MainData(it.name,
                                     it.location,
                                     it.email,
@@ -38,7 +38,7 @@ object MainDataRemoteSource : MainDataSource {
 
                     }
                 }, {
-                    callback.onError(it.message )
+                    callback.onError(it.message)
                 })
     }
 
@@ -49,16 +49,20 @@ object MainDataRemoteSource : MainDataSource {
                 .subscribe({
                     run {
 
-                        if (it.isNotEmpty()){
+                        if (it.isNotEmpty()) {
+                            Log.i("xx", " ${it.size}")
 
                             val listRepo: MutableList<RepoData?> = mutableListOf<RepoData?>()
-                            for (item: RepoDataDao in it){
+                            for (item: RepoDataDao in it) {
+                                Log.i("xx", " -- ${item.description}")
                                 val repoData = RepoData(
                                         item.name,
                                         item.language,
-                                        item.description
+                                        item.description,
+                                        item.html_url
                                 )
                                 listRepo.add(repoData)
+
 
                             }
 
@@ -69,7 +73,7 @@ object MainDataRemoteSource : MainDataSource {
 
                     }
                 }, {
-                    callback.onError(it.message )
+                    callback.onError(it.message)
                 })
     }
 
