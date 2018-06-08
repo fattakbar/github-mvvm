@@ -5,7 +5,6 @@ import com.yogiw.githubmvvm.data.RepoData
 import com.yogiw.githubmvvm.data.source.local.MainDataLocalSource
 
 
-// REPOSITORY SATU AJA
 class MainDataRepository(
         val remoteDataSource: MainDataSource,
         val localDataSource: MainDataSource

@@ -18,6 +18,4 @@ interface MainDataSource {
         fun onNotAvailable()
         fun onError(msg: String?)
     }
-
-    // NANTI INTERFACENYA DITAMBAHIN MISALKAN GETSUBDATA
 }

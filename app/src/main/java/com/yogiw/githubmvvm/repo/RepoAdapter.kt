@@ -45,10 +45,6 @@ class RepoAdapter(private var repoData: MutableList<RepoData>,private var repoVi
             repoItemBinding.datas =  repoData
             repoItemBinding.action = userActionListener
             repoItemBinding.executePendingBindings()
-//            if(repoData.urlToImage!= null)
-//                newsRowBinding.ivRowNewsImage.load(news.urlToImage!!){
-//                    requestCreator -> requestCreator.fit().centerCrop()
-//                }
         }
     }
 }

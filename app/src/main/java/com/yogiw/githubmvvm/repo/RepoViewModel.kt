@@ -34,7 +34,6 @@ class RepoViewModel (application: Application, private val mainDataRepository: M
 
             override fun onError(msg: String?) {
                 Toast.makeText(getApplication(),"Error at - $msg", Toast.LENGTH_SHORT).show()
-                Log.i("xx", msg)
             }
         })
     }

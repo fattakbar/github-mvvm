@@ -33,7 +33,6 @@ class RepoActivity : AppCompatActivity() {
     private fun setupViewModel() {
         viewModel = obtainViewModel().apply{
             openRepo.observe(this@RepoActivity, Observer{
-                Log.i("xx", " * it")
                 onRepoClicked(it!!)
             })
         }
@@ -47,7 +46,6 @@ class RepoActivity : AppCompatActivity() {
     }
 
     fun onRepoClicked(url: String) {
-        Toast.makeText(this, "xx", Toast.LENGTH_LONG).show()
         val builder = CustomTabsIntent.Builder()
         val customTabsIntent = builder.build()
         builder.setToolbarColor(ContextCompat.getColor(mActivity, R.color.colorPrimary))
