@@ -12,14 +12,14 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.ImageView
 import com.squareup.picasso.Picasso
 import com.squareup.picasso.RequestCreator
-import internship.gits.newsapps.util.ViewModelFactory
+import com.yogiw.githubmvvm.util.ViewModelFactory
 
-fun AppCompatActivity.setupActionBar(@IdRes toolbarId: Int, action: ActionBar.() -> Unit) {
-    setSupportActionBar(findViewById(toolbarId))
-    supportActionBar?.run {
-        action()
-    }
-}
+//fun AppCompatActivity.setupActionBar(@IdRes toolbarId: Int, action: ActionBar.() -> Unit) {
+//    setSupportActionBar(findViewById(toolbarId))
+//    supportActionBar?.run {
+//        action()
+//    }
+//}
 fun AppCompatActivity.replaceFragmentInActivity(fragment: Fragment, frameId: Int){
     supportFragmentManager.transact {
         replace(frameId,fragment)

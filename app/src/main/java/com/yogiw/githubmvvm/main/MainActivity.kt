@@ -9,6 +9,7 @@ import com.yogiw.githubmvvm.R
 import com.yogiw.githubmvvm.repo.RepoActivity
 import com.yogiw.githubmvvm.util.replaceFragmentInActivity
 import com.yogiw.githubmvvm.util.obtainViewModel
+import com.yogiw.githubmvvm.util.ViewModelFactory
 
 
 class MainActivity : AppCompatActivity() {

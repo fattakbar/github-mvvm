@@ -7,7 +7,7 @@ import android.widget.Toast
 import com.yogiw.githubmvvm.data.MainData
 import com.yogiw.githubmvvm.data.source.MainDataRepository
 import com.yogiw.githubmvvm.data.source.MainDataSource
-import internship.gits.newsapps.util.SingleLiveEvent
+import com.yogiw.githubmvvm.util.SingleLiveEvent
 
 
 class MainViewModel(application: Application, private val mainDataRepository: MainDataRepository) : AndroidViewModel(application) {
@@ -30,7 +30,7 @@ class MainViewModel(application: Application, private val mainDataRepository: Ma
             }
 
             override fun onError(msg: String?) {
-                Toast.makeText(getApplication(), "Error: ${msg}", Toast.LENGTH_LONG).show()
+                Toast.makeText(getApplication(), "Error: $msg", Toast.LENGTH_LONG).show()
             }
 
             override fun onNotAvailable() {

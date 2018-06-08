@@ -1,4 +1,4 @@
-package internship.gits.newsapps.util
+package com.yogiw.githubmvvm.util
 
 import android.annotation.SuppressLint
 import android.app.Application

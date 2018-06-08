@@ -1,4 +1,4 @@
-package internship.gits.newsapps.util
+package com.yogiw.githubmvvm.util
 
 import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.MutableLiveData
