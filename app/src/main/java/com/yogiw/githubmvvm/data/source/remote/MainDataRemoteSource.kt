@@ -24,12 +24,10 @@ object MainDataRemoteSource : MainDataSource {
                         if (it.name != "") {
                             val mainData = MainData(it.name,
                                     it.location,
-                                    it.email,
-                                    it.company,
                                     it.avatar_url,
-                                    "${it.followers.toString()} \nFollowers",
-                                    "${it.following.toString()} \nFollowings",
-                                    "${it.public_repos.toString()} \nRepos"
+                                    "${it.followers}\nFollowers",
+                                    "${it.following}\nFollowings",
+                                    "${it.public_repos}\nRepos"
                             )
                             callback.onDataLoaded(mainData)
                         } else {

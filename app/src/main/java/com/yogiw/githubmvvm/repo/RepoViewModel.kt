@@ -9,7 +9,7 @@ import android.widget.Toast
 import com.yogiw.githubmvvm.data.RepoData
 import com.yogiw.githubmvvm.data.source.MainDataRepository
 import com.yogiw.githubmvvm.data.source.MainDataSource
-import internship.gits.newsapps.util.SingleLiveEvent
+import com.yogiw.githubmvvm.util.SingleLiveEvent
 
 class RepoViewModel (application: Application, private val mainDataRepository: MainDataRepository) : AndroidViewModel(application){
     val repoList: ObservableList<RepoData> = ObservableArrayList()
